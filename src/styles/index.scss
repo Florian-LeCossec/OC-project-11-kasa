@@ -1,0 +1,6 @@
+@use './base/reset';
+@use './base/variable' as vars;
+
+body {
+    font-family: vars.$font-family;
+}

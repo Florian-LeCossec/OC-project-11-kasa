@@ -1,0 +1,35 @@
+@use '../base/_variable.scss' as vars;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 45px 100px;
+
+    &__logo {
+        width: 210px;
+        height: 68px;
+    }
+
+    &__nav {
+        &__list {
+            display: flex;
+            align-items: flex-start;
+            gap: 57px;
+        }
+
+        &__item {
+            list-style: none;
+
+            &__link {
+                text-decoration: none;
+                color: vars.$black;
+                font-size: vars.$font-size-medium;
+
+                &--active {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
