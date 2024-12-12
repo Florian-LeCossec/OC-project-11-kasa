@@ -3,14 +3,13 @@ import { useContext } from 'react';
 import DataContext from '../contexts/dataContext';
 import Card from '../components/Card';
 import Headband from '../components/Headband';
-import landscape1 from '../assets/landscape-1.svg';
 
 const Home = () => {
   const accommodations = useContext(DataContext);
   return (
     <>
       <div className="home">
-      <Headband title="Chez vous, partout et ailleurs" background={landscape1} />
+      <Headband title="Chez vous, partout et ailleurs" background={'/src/assets/landscape-1.svg'} />
         <div className="cards-grid">
           {accommodations.map((accommodation) => (
             <Card 

@@ -5,7 +5,7 @@ import Home from '@/pages/Home';
 import About from '@/pages/About';
 import Header from '@/layouts/header/Header';
 import Accommodation from '@/pages/Accommodation';
-
+import Footer from '@/layouts/footer/Footer';
 
 const App = () => {
   return (
@@ -17,6 +17,7 @@ const App = () => {
           <Route path="/accommodations/:id" element={<Accommodation />} />
           <Route path="/about" element={<About />} />
         </Routes>
+        <Footer />
       </DataProvider>
     </Router>
   );

@@ -1,10 +1,10 @@
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import '@/styles/layouts/_header.scss';
+import '@/styles/layouts/_Header.scss';
 
 const Header = () => {
   const location = useLocation();
-  
+
   const getNavLinkClass = (path) => {
     const baseClass = 'header__nav__item__link';
     return `${baseClass} ${location.pathname === path ? `${baseClass}--active` : ''}`;
