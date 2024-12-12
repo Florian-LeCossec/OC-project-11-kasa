@@ -1,6 +1,21 @@
 @use './base/reset';
 @use './base/variable' as vars;
 
-body {
+html, body {
     font-family: vars.$font-family;
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}
+
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main-content {
+    flex: 1 0 auto;
 }
