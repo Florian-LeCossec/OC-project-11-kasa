@@ -35,6 +35,8 @@ export default [
       ],
       quotes: ['error', 'single'],
       semi: ['error', 'always'],
+      'prefer-arrow-callback': 'error',
+      'func-style': ['error', 'expression'],
     },
   },
 ];
