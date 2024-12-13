@@ -1,22 +1,33 @@
 import '@/styles/pages/Accommodation.scss';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import DataContext from '../contexts/dataContext';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import BtnList from '@/components/BtnList';
+import Slideshow from '@/components/Slideshow';
+
+
 
 const Accommodation = () => {
     const { id } = useParams();
     const data = useContext(DataContext);
+    const [accommodation, setAccommodation] = useState(null);
 
-    const accommodation = data.find((item) => item.id === id);
+    useEffect(() => {
+        if (data.length > 0) {
+            const foundAccommodation = data.find((item) => item.id === id);
+            setAccommodation(foundAccommodation);
+        }
+    }, [data, id]);
 
-    if (!accommodation) {
-        return <Navigate to="/404"/>;
-    }
     return (
-        <div>
-            <h1>{accommodation.title}</h1>
-            <BtnList name="Equipements" list={accommodation.equipments} />
+        <div className='accommodation'>
+            {accommodation && (
+                <>
+                    <h2>{accommodation.title}</h2>
+                    <Slideshow images={accommodation.pictures} />
+                    <BtnList name="Equipements" list={accommodation.equipments} />
+                </>
+            )}
         </div>
     );
 };
