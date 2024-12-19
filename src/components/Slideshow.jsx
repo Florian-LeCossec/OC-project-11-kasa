@@ -24,10 +24,11 @@ const Slideshow = ({ images }) => {
     return (
         <div className='slideshow'>
             <img src={images[currentImage]} alt="slideshow" className='slideshow__image' />
-            <button className='slideshow__prev-btn' onClick={handleNextClick}>
+            <button className='slideshow__prev-btn' onClick={handlePrevClick}>
                 <img src="/src/assets/icons/arrow-icon.svg" alt="arrow" />
             </button>
-            <button className='slideshow__next-btn' onClick={handlePrevClick}>
+            <p className='slideshow__count'>{currentImage + 1} / {images.length}</p>
+            <button className='slideshow__next-btn' onClick={handleNextClick}>
                 <img src="/src/assets/icons/arrow-icon.svg" alt="arrow" />
             </button>
         </div>

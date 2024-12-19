@@ -42,4 +42,13 @@
     &__prev-btn {
         transform: rotate(90deg);
     }
+
+    &__count {
+        align-self: flex-end;
+        z-index: 1000;
+        color: vars.$white;
+        margin-bottom: 25px;
+        font-size: vars.$font-size-small;
+        font-weight: vars.$font-weight-regular;
+    }
 }
