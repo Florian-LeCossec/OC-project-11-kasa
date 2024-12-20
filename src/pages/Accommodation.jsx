@@ -1,5 +1,5 @@
 import '@/styles/pages/Accommodation.scss';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import DataContext from '../contexts/dataContext';
 import { useContext, useEffect, useState } from 'react';
 import BtnList from '@/components/BtnList';
@@ -9,6 +9,7 @@ import Rating from '@/components/Rating';
 
 const Accommodation = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const data = useContext(DataContext);
     const [accommodation, setAccommodation] = useState(null);
 
@@ -18,10 +19,10 @@ const Accommodation = () => {
             if (foundAccommodation) {
                 setAccommodation(foundAccommodation);
             } else {
-                console.log('not found / handle navigate');
+                navigate('/404');
             }
         }
-    }, [data, id]);
+    }, [data, id, navigate]);
 
     return (
         <div className='accommodation'>

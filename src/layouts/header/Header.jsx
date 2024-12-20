@@ -12,7 +12,9 @@ const Header = () => {
 
   return (
     <header className='header'>
-      <img className='header__logo' src='/src/assets/kasa-logo.svg' alt="logo" />
+      <Link to="/">
+        <img className='header__logo' src='/src/assets/kasa-logo.svg' alt="logo" />
+      </Link>
       <nav className='header__nav'>
         <ul className='header__nav__list'>
           <li className='header__nav__item'>
