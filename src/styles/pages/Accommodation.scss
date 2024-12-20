@@ -1,6 +1,82 @@
+@use '@/styles/base/variable' as vars;
+
 .accommodation {
     margin: 50px 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 43px;
+
+    &__first-section {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__title {
+            h2 {
+                font-size: vars.$font-size-large;
+                font-weight: vars.$font-weight-regular;
+                color: vars.$red;
+                line-height: 142.6%;
+            }
+
+            span {
+                font-size: vars.$font-size-small;
+                font-weight: vars.$font-weight-regular;
+            }
+        }
+
+        &__host {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &__name {
+                height: 50px;
+                font-size: vars.$font-size-small;
+                font-weight: vars.$font-weight-regular;
+                color: vars.$red;
+                text-align: right;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            &__picture {
+                width: 64px;
+                height: 64px;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &__second-section {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__tags {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &__tag {
+                font-size: vars.$font-size-very-small;
+                font-weight: vars.$font-weight-regular;
+                color: vars.$white;
+                background-color: vars.$red;
+                padding: 3px 10px;
+                border-radius: 10px;
+                min-width: 115px;
+                height: 25px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        &__rating {
+            display: flex;
+            align-items: center;
+            margin-top: -12.5px;
+        }
+    }
 }

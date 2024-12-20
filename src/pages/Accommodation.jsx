@@ -4,7 +4,7 @@ import DataContext from '../contexts/dataContext';
 import { useContext, useEffect, useState } from 'react';
 import BtnList from '@/components/BtnList';
 import Slideshow from '@/components/Slideshow';
-
+import Rating from '@/components/Rating';
 
 
 const Accommodation = () => {
@@ -23,9 +23,30 @@ const Accommodation = () => {
         <div className='accommodation'>
             {accommodation && (
                 <>
-                    <h2>{accommodation.title}</h2>
                     <Slideshow images={accommodation.pictures} />
-                    <BtnList name="Equipements" list={accommodation.equipments} />
+                    <div className='accommodation__first-section'>
+                        <div className='accommodation__first-section__title'>
+                            <h2>{accommodation.title}</h2>
+                            <span>{accommodation.location}</span>
+                        </div>
+                        <div className='accommodation__first-section__host'>
+                            <div className='accommodation__first-section__host__name'>
+                                <span className='accommodation__first-section__host__name__firstname'>{accommodation.host.name.split(' ')[0]}</span>
+                                <span className='accommodation__first-section__host__name__lastname'>{accommodation.host.name.split(' ')[1]}</span>
+                            </div>
+                            <img className='accommodation__first-section__host__picture' src={accommodation.host.picture} alt="host" />
+                        </div>
+                    </div>
+                    <div className='accommodation__second-section'>
+                        <div className='accommodation__second-section__tags'>
+                            {accommodation.tags.map((tag, index) => (
+                                <span key={index} className='accommodation__second-section__tags__tag'>{tag}</span>
+                            ))}
+                        </div>
+                        <div className='accommodation__second-section__rating'>
+                            <Rating rating={Number(accommodation.rating)} />
+                        </div>
+                    </div>
                 </>
             )}
         </div>

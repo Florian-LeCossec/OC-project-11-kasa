@@ -1,0 +1,10 @@
+@use '../base/_variable.scss' as vars;
+
+.rating {
+    display: flex;
+    align-items: center;
+
+    img {
+        fill: vars.$red;
+    }
+}
