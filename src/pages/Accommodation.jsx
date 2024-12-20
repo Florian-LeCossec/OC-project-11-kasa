@@ -47,6 +47,10 @@ const Accommodation = () => {
                             <Rating rating={Number(accommodation.rating)} />
                         </div>
                     </div>
+                    <div className='accommodation__third-section'>
+                        <BtnList name="Description" list={accommodation.description} isList={false} />
+                        <BtnList name="Equipements" list={accommodation.equipments} isList={true} />
+                    </div>
                 </>
             )}
         </div>

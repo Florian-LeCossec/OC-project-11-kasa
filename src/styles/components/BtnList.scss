@@ -1,0 +1,33 @@
+@use '../base/_variable.scss' as vars;
+
+.btn-list {
+    display: block;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    &--open {
+        background-color: vars.$gray-opacity;
+    }
+    
+
+    button {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        background-color: vars.$red;
+        color: vars.$white;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        font-weight: vars.$font-weight-bold;
+        font-size: vars.$font-size-small;
+    }
+
+    &__list,
+    &__description {
+        padding: 20px;
+        line-height: 142.6%;
+    }
+}

@@ -2,11 +2,11 @@ import useToggle from '@/hooks/toggleHook';
 import PropTypes from 'prop-types';
 import '@/styles/components/BtnList.scss';
 
-const BtnList = ({ name, list}) => {
+const BtnList = ({ name, list, isList}) => {
     const [isOpen, toggleOpen] = useToggle(false);
 
     return (
-        <div className='btn-list'>
+        <div className={`btn-list ${isOpen ? 'btn-list--open' : ''}`}>
             <button onClick={toggleOpen}>
                 <span className='btn-list__name'>{name}</span>
                 <img 
@@ -15,12 +15,15 @@ const BtnList = ({ name, list}) => {
                     alt={isOpen ? 'arrow-up' : 'arrow-down'} 
                 />
             </button>
-            {isOpen && (
+            {isOpen && isList && (
                 <ul className='btn-list__list'>
                     {list.map((item, index) => (
                         <li key={index}>{item}</li>
                     ))}
                 </ul>
+            )}
+            {isOpen && !isList && (
+                <p className='btn-list__description'>{list}</p>
             )}
         </div>
     );
@@ -28,7 +31,8 @@ const BtnList = ({ name, list}) => {
 
 BtnList.propTypes = {
     name: PropTypes.string.isRequired,
-    list: PropTypes.arrayOf(PropTypes.string).isRequired,
+    list: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]).isRequired,
+    isList: PropTypes.bool.isRequired,
 };
 
 export default BtnList;
