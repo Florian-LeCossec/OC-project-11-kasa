@@ -1,5 +1,5 @@
 import '@/styles/pages/Accommodation.scss';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import DataContext from '../contexts/dataContext';
 import { useContext, useEffect, useState } from 'react';
 import BtnList from '@/components/BtnList';
@@ -15,7 +15,11 @@ const Accommodation = () => {
     useEffect(() => {
         if (data.length > 0) {
             const foundAccommodation = data.find((item) => item.id === id);
-            setAccommodation(foundAccommodation);
+            if (foundAccommodation) {
+                setAccommodation(foundAccommodation);
+            } else {
+                console.log('not found / handle navigate');
+            }
         }
     }, [data, id]);
 

@@ -24,13 +24,17 @@ const Slideshow = ({ images }) => {
     return (
         <div className='slideshow'>
             <img src={images[currentImage]} alt="slideshow" className='slideshow__image' />
-            <button className='slideshow__prev-btn' onClick={handlePrevClick}>
-                <img src="/src/assets/icons/arrow-icon.svg" alt="arrow" />
-            </button>
-            <p className='slideshow__count'>{currentImage + 1} / {images.length}</p>
-            <button className='slideshow__next-btn' onClick={handleNextClick}>
-                <img src="/src/assets/icons/arrow-icon.svg" alt="arrow" />
-            </button>
+            {images.length > 1 && (
+                <>
+                    <button className='slideshow__prev-btn' onClick={handlePrevClick}>
+                        <img src="/src/assets/icons/arrow-icon.svg" alt="arrow" />
+                    </button>
+                    <p className='slideshow__count'>{currentImage + 1} / {images.length}</p>
+                    <button className='slideshow__next-btn' onClick={handleNextClick}>
+                        <img src="/src/assets/icons/arrow-icon.svg" alt="arrow" />
+                    </button>
+                </>
+            )}
         </div>
     );
 };
