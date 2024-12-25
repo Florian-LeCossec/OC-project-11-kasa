@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import mockData from '@/mock.json';
+import dataAccommodation from '@/data/dataAccommodation.json';
 import DataContext from './dataContext';
 
 export const DataProvider = ({ children }) => {
@@ -9,7 +9,7 @@ export const DataProvider = ({ children }) => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          setData(mockData);
+          setData(dataAccommodation);
         } catch (error) {
           console.error('Erreur lors du chargement du fichier JSON:', error);
         }
