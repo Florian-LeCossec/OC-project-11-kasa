@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import dataAccommodation from '@/data/dataAccommodation.json';
 import DataContext from './dataContext';
 
-export const DataProvider = ({ children }) => {
-    const [data, setData] = useState([]);
+export const DataProvider = ({ children, dataFiles }) => {
+    const [data, setData] = useState({});
 
     useEffect(() => {
+      console.log(dataFiles);
       const fetchData = async () => {
         try {
-          setData(dataAccommodation);
+          setData(dataFiles);
         } catch (error) {
-          console.error('Erreur lors du chargement du fichier JSON:', error);
+          console.error('Erreur lors du chargement des données:', error);
         }
       };
       fetchData();
-    }, []);
+    }, [dataFiles]);
   
     return (
       <DataContext.Provider value={data}>
@@ -26,4 +26,5 @@ export const DataProvider = ({ children }) => {
 
 DataProvider.propTypes = {
     children: PropTypes.node.isRequired,
+    dataFiles: PropTypes.object.isRequired,
 };

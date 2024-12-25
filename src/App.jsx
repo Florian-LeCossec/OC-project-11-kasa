@@ -9,22 +9,30 @@ import Accommodation from '@/pages/Accommodation';
 import Footer from '@/layouts/footer/Footer';
 import NotFound from '@/pages/NotFound';
 
+// data
+import dataAccommodation from '@/data/dataAccommodation.json';
+import dataAbout from '@/data/dataAbout.json';
+
 const App = () => {
   return (
     <Router>
       <div className='app-wrapper'>
-        <DataProvider>
-          <Header />
+        <Header />
+        
+        {/* Fournir les deux jeux de données au DataProvider */}
+        <DataProvider dataFiles={{ dataAccommodation: dataAccommodation, dataAbout: dataAbout }}>
           <main className='app-wrapper__main'>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/accommodations/:id" element={<Accommodation />} />
               <Route path="/about" element={<About />} />
+              {/* Route pour les pages non trouvées */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
-          <Footer />
         </DataProvider>
+        
+        <Footer />
       </div>
     </Router>
   );

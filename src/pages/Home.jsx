@@ -5,7 +5,9 @@ import Card from '../components/Card';
 import Headband from '../components/Headband';
 
 const Home = () => {
-  const accommodations = useContext(DataContext);
+  const {dataAccommodation} = useContext(DataContext);
+  const accommodations = Array.isArray(dataAccommodation) ? dataAccommodation : [];
+  
   return (
     <>
       <div className="home">

@@ -10,19 +10,21 @@ import Rating from '@/components/Rating';
 const Accommodation = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const data = useContext(DataContext);
+    const { dataAccommodation } = useContext(DataContext);
     const [accommodation, setAccommodation] = useState(null);
 
     useEffect(() => {
-        if (data.length > 0) {
-            const foundAccommodation = data.find((item) => item.id === id);
+        const accommodations = Array.isArray(dataAccommodation) ? dataAccommodation : [];
+        
+        if (accommodations.length > 0) {
+            const foundAccommodation = accommodations.find((item) => item.id === id);
             if (foundAccommodation) {
                 setAccommodation(foundAccommodation);
             } else {
                 navigate('/404');
             }
         }
-    }, [data, id, navigate]);
+    }, [dataAccommodation, id, navigate]);
 
     return (
         <div className='accommodation'>
