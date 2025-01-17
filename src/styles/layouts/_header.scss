@@ -6,9 +6,18 @@
     align-items: center;
     margin: 45px 100px 0 100px;
 
+    @media (max-width: 768px) {
+        margin: 20px 20px;
+    }
+
     &__logo {
         width: 210px;
         height: 68px;
+
+        @media (max-width: 768px) {
+            width: 145px;
+            height: 45px;
+        }
     }
 
     &__nav {
@@ -25,6 +34,12 @@
                 text-decoration: none;
                 color: vars.$black;
                 font-size: vars.$font-size-medium;
+
+                @media (max-width: 768px) {
+                    font-size: vars.$font-size-mobile-small;
+                    line-height: 17px;
+                    font-weight: vars.$font-weight-regular;
+                }
 
                 &--active {
                     text-decoration: underline;

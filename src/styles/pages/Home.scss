@@ -6,6 +6,11 @@
   flex-direction: column;
   gap: 43px;
 
+  @media (max-width: 768px) {
+    margin: 10px 20px;
+    gap: 20px;
+  }
+
   .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
@@ -15,5 +20,13 @@
     padding: 56px 50px 43px 50px;
     border-radius: 25px;
     justify-items: center;
+
+    @media (max-width: 768px) {
+      padding: 0;
+      background: none;
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 20px;
+    }
   }
 }
+
