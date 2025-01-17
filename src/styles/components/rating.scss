@@ -6,5 +6,9 @@
 
     img {
         fill: vars.$red;
+
+        @media (max-width: 768px) {
+            height: 18px;
+        }
     }
 }

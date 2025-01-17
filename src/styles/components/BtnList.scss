@@ -9,6 +9,29 @@
     &--open {
         background-color: vars.$gray-opacity;
     }
+
+    &__icon {
+        &--open,
+        &--close {
+            width: 32px;
+            height: 32px;
+
+            @media (max-width: 768px) {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &--open {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        &--close {
+            transform: rotate(0deg);
+            transition: transform 0.3s ease-in-out;
+        }
+    }
     
 
     button {
@@ -23,6 +46,10 @@
         border: none;
         font-weight: vars.$font-weight-bold;
         font-size: vars.$font-size-small;
+
+        @media (max-width: 768px) {
+            font-size: vars.$font-size-mobile-medium;
+        }
     }
 
     &__list,

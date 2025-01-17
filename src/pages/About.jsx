@@ -7,7 +7,6 @@ import '@/styles/pages/About.scss';
 const About = () => {
   const { dataAbout } = useContext(DataContext);
   const about = Array.isArray(dataAbout) ? dataAbout : [];
-  console.log(about);
   return (
   <div className='about'>
     <Headband background={'/src/assets/landscape-2.svg'} />

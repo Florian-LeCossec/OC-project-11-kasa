@@ -3,11 +3,24 @@
 .accommodation {
     margin: 50px 100px;
 
+    @media (max-width: 768px) {
+        margin: 25px 20px;
+    }
+
+    &__sections-wrapper {
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
     &__first-section {
         margin-top: 30px;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        gap: 20px;
 
         &__title {
             h2 {
@@ -15,12 +28,65 @@
                 font-weight: vars.$font-weight-regular;
                 color: vars.$red;
                 line-height: 142.6%;
+
+                @media (max-width: 768px) {
+                    font-size: vars.$font-size-mobile-large;
+                }
             }
 
             span {
                 font-size: vars.$font-size-small;
                 font-weight: vars.$font-weight-regular;
+
+                @media (max-width: 768px) {
+                    font-size: vars.$font-size-mobile-medium;
+                }
             }
+        }
+        &__tags {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            @media (max-width: 768px) {
+                flex-wrap: wrap;
+            }
+
+            &__tag {
+                font-size: vars.$font-size-very-small;
+                font-weight: vars.$font-weight-bold;
+                color: vars.$white;
+                background-color: vars.$red;
+                padding: 3px 10px;
+                border-radius: 10px;
+                min-width: 115px;
+                height: 25px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @media (max-width: 768px) {
+                    font-size: vars.$font-size-mobile-very-small;
+                    min-width: 80px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+
+    &__second-section {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-end;
+
+        @media (max-width: 768px) {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+
         }
 
         &__host {
@@ -36,41 +102,23 @@
                 text-align: right;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: space-around;
+                line-height: 142.6%;
+
+                @media (max-width: 768px) {
+                    font-size: vars.$font-size-mobile-small;
+                }
             }
 
             &__picture {
                 width: 64px;
                 height: 64px;
                 border-radius: 50%;
-            }
-        }
-    }
 
-    &__second-section {
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        &__tags {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-
-            &__tag {
-                font-size: vars.$font-size-very-small;
-                font-weight: vars.$font-weight-regular;
-                color: vars.$white;
-                background-color: vars.$red;
-                padding: 3px 10px;
-                border-radius: 10px;
-                min-width: 115px;
-                height: 25px;
-                text-align: center;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @media (max-width: 768px) {
+                    width: 40px;
+                    height: 40px;
+                }
             }
         }
         &__rating {
@@ -81,8 +129,13 @@
     }
 
     &__third-section {
-        margin-top: 20px;
+        margin-top: 25px;
         display: flex;
         gap: 50px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 20px;
+        }
     }
 }
