@@ -56,5 +56,9 @@
     &__description {
         padding: 20px;
         line-height: 142.6%;
+
+        @media (max-width: 768px) {
+            font-size: vars.$font-size-mobile-small;
+        }
     }
 }
