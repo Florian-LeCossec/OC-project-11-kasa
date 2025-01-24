@@ -1,18 +1,13 @@
 import useToggle from '@/hooks/toggleHook';
 import PropTypes from 'prop-types';
 import '@/styles/components/BtnList.scss';
-import { useState } from 'react';
 
 const BtnList = ({ name, list, isList}) => {
     const [isOpen, toggleOpen] = useToggle(false);
-    const [isVisible, setIsVisible] = useState(null);
     
     return (
         <div className={`btn-list ${isOpen ? 'btn-list--open' : ''}`}>
-            <button onClick={() => {
-                toggleOpen();
-                setIsVisible(!isVisible);
-            }}>
+            <button onClick={toggleOpen}>
                 <span className='btn-list__name'>{name}</span>
                 <img 
                     className={isOpen ? 'btn-list__icon--open' : 'btn-list__icon--close'} 
