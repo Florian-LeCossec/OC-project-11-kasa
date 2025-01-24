@@ -6,7 +6,6 @@ export const DataProvider = ({ children, dataFiles }) => {
     const [data, setData] = useState({});
 
     useEffect(() => {
-      console.log(dataFiles);
       const fetchData = async () => {
         try {
           setData(dataFiles);
